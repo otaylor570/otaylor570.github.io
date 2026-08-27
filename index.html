@@ -146,41 +146,6 @@
     margin: 0 0 2rem;
   }
  
-  .welcome-cta {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
- 
-  .welcome-cta button {
-    appearance: none;
-    border: 1px solid var(--line);
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "Lora", Georgia, serif;
-    font-size: 0.92rem;
-    padding: 0.65rem 1.1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
-  }
- 
-  .welcome-cta button.primary {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
-  }
- 
-  .welcome-cta button:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
- 
-  .welcome-cta button.primary:hover {
-    color: #fff;
-    opacity: 0.9;
-  }
- 
   p {
     color: var(--ink-soft);
     margin: 0 0 1.1rem;
@@ -307,6 +272,96 @@
     font-size: 0.9rem;
   }
  
+  .details-btn {
+    appearance: none;
+    margin-top: 0.5rem;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--accent);
+    font-family: "Lora", Georgia, serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+ 
+  .details-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+ 
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(43, 33, 21, 0.45);
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 100;
+  }
+ 
+  .modal-overlay.open {
+    display: flex;
+  }
+ 
+  .modal-box {
+    position: relative;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    max-width: 520px;
+    width: 100%;
+    padding: 2rem 2.2rem;
+    box-shadow: 0 12px 40px rgba(43, 33, 21, 0.25);
+    animation: fadeIn 0.2s ease;
+  }
+ 
+  .modal-close {
+    position: absolute;
+    top: 0.9rem;
+    right: 1rem;
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--ink-soft);
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+ 
+  .modal-close:hover {
+    color: var(--ink);
+  }
+ 
+  .modal-date {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+ 
+  .modal-title {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+  }
+ 
+  .modal-org {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+ 
+  .modal-body {
+    margin: 0;
+  }
+ 
   .empty-state {
     border: 1px dashed var(--line);
     border-radius: 10px;
@@ -352,11 +407,6 @@
     <div class="eyebrow">Welcome</div>
     <h1>Hi, I'm Oran Taylor.</h1>
     <p class="tagline">A 20-year-old Electrical &amp; Electronic Engineering student at Queen's University Belfast, currently on placement at EDF Energy's Hinkley Point C site in Somerset, England.</p>
-    <div class="welcome-cta">
-      <button class="primary" onclick="showTab('about')">About Me</button>
-      <button onclick="showTab('career')">My Career</button>
-      <button onclick="showTab('projects')">Projects</button>
-    </div>
   </section>
  
   <section id="about">
@@ -385,6 +435,12 @@
           <div class="timeline-role">Work Experience</div>
           <div class="timeline-org">Generation Innovation</div>
           <p class="placeholder-hint">Add a sentence or two here about what you did during this placement.</p>
+          <button class="details-btn"
+            onclick="openDetails(this)"
+            data-date="2023"
+            data-role="Work Experience"
+            data-org="Generation Innovation"
+            data-detail="Add an in-depth description here: what the programme involved, what you worked on day-to-day, and anything you achieved.">More details</button>
         </div>
       </div>
  
@@ -395,6 +451,12 @@
           <div class="timeline-role">Work Experience</div>
           <div class="timeline-org">ARUP</div>
           <p class="placeholder-hint">Add a sentence or two here about what you did during this placement.</p>
+          <button class="details-btn"
+            onclick="openDetails(this)"
+            data-date="2024"
+            data-role="Work Experience"
+            data-org="ARUP"
+            data-detail="Add an in-depth description here: what the placement involved, what you worked on day-to-day, and anything you achieved.">More details</button>
         </div>
       </div>
  
@@ -405,6 +467,12 @@
           <div class="timeline-role">Summer Internship</div>
           <div class="timeline-org">Artemis Technologies</div>
           <p class="placeholder-hint">Add a sentence or two here about what you did during this internship.</p>
+          <button class="details-btn"
+            onclick="openDetails(this)"
+            data-date="2025"
+            data-role="Summer Internship"
+            data-org="Artemis Technologies"
+            data-detail="Add an in-depth description here: what the internship involved, what you worked on day-to-day, and anything you achieved.">More details</button>
         </div>
       </div>
  
@@ -415,6 +483,12 @@
           <div class="timeline-role">Placement Year <span class="badge">Current</span></div>
           <div class="timeline-org">EDF Energy &mdash; Hinkley Point C, Somerset</div>
           <p class="placeholder-hint">Add a sentence or two here about your role at HPC.</p>
+          <button class="details-btn"
+            onclick="openDetails(this)"
+            data-date="Add year &ndash; Present"
+            data-role="Placement Year"
+            data-org="EDF Energy &mdash; Hinkley Point C, Somerset"
+            data-detail="Add an in-depth description here: what your placement involves, what you work on day-to-day, and anything you achieve.">More details</button>
         </div>
       </div>
  
@@ -435,6 +509,16 @@
   &copy; <span id="year"></span> Oran Taylor
 </footer>
  
+<div class="modal-overlay" id="detail-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetails()" aria-label="Close">&times;</button>
+    <div class="modal-date" id="modal-date"></div>
+    <div class="modal-title" id="modal-role"></div>
+    <div class="modal-org" id="modal-org"></div>
+    <p class="modal-body" id="modal-detail"></p>
+  </div>
+</div>
+ 
 <script>
   function showTab(id) {
     document.querySelectorAll('section').forEach(function (s) {
@@ -452,6 +536,28 @@
   });
  
   document.getElementById('year').textContent = new Date().getFullYear();
+ 
+  var detailModal = document.getElementById('detail-modal');
+ 
+  function openDetails(btn) {
+    document.getElementById('modal-date').textContent = btn.dataset.date;
+    document.getElementById('modal-role').textContent = btn.dataset.role;
+    document.getElementById('modal-org').textContent = btn.dataset.org;
+    document.getElementById('modal-detail').textContent = btn.dataset.detail;
+    detailModal.classList.add('open');
+  }
+ 
+  function closeDetails() {
+    detailModal.classList.remove('open');
+  }
+ 
+  detailModal.addEventListener('click', function (e) {
+    if (e.target === detailModal) closeDetails();
+  });
+ 
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeDetails();
+  });
 </script>
  
 </body>
