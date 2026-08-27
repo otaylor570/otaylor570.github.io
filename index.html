@@ -212,6 +212,42 @@
  
   .timeline-item {
     position: relative;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+ 
+  .timeline-logo {
+    flex: 0 0 auto;
+    width: 46px;
+    height: 46px;
+    border-radius: 8px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+ 
+  .timeline-logo img {
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+  }
+ 
+  .timeline-logo.initials {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-color: var(--accent-soft);
+  }
+ 
+  .timeline-content {
+    flex: 1 1 auto;
+    min-width: 0;
   }
  
   .timeline-item::before {
@@ -343,31 +379,43 @@
     <div class="timeline">
  
       <div class="timeline-item">
-        <div class="timeline-date">2023</div>
-        <div class="timeline-role">Work Experience</div>
-        <div class="timeline-org">Generation Innovation</div>
-        <p class="placeholder-hint">Add a sentence or two here about what you did during this placement.</p>
+        <div class="timeline-logo initials">GI</div>
+        <div class="timeline-content">
+          <div class="timeline-date">2023</div>
+          <div class="timeline-role">Work Experience</div>
+          <div class="timeline-org">Generation Innovation</div>
+          <p class="placeholder-hint">Add a sentence or two here about what you did during this placement.</p>
+        </div>
       </div>
  
       <div class="timeline-item">
-        <div class="timeline-date">2024</div>
-        <div class="timeline-role">Work Experience</div>
-        <div class="timeline-org">ARUP</div>
-        <p class="placeholder-hint">Add a sentence or two here about what you did during this placement.</p>
+        <div class="timeline-logo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Arup_logo.svg" alt="Arup logo"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2024</div>
+          <div class="timeline-role">Work Experience</div>
+          <div class="timeline-org">ARUP</div>
+          <p class="placeholder-hint">Add a sentence or two here about what you did during this placement.</p>
+        </div>
       </div>
  
       <div class="timeline-item">
-        <div class="timeline-date">2025</div>
-        <div class="timeline-role">Summer Internship</div>
-        <div class="timeline-org">Artemis Technologies</div>
-        <p class="placeholder-hint">Add a sentence or two here about what you did during this internship.</p>
+        <div class="timeline-logo"><img src="https://www.artemistechnologies.co.uk/img/icons/artemis-logo.svg" alt="Artemis Technologies logo"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2025</div>
+          <div class="timeline-role">Summer Internship</div>
+          <div class="timeline-org">Artemis Technologies</div>
+          <p class="placeholder-hint">Add a sentence or two here about what you did during this internship.</p>
+        </div>
       </div>
  
       <div class="timeline-item current">
-        <div class="timeline-date">Add year &ndash; Present</div>
-        <div class="timeline-role">Placement Year <span class="badge">Current</span></div>
-        <div class="timeline-org">EDF Energy &mdash; Hinkley Point C, Somerset</div>
-        <p class="placeholder-hint">Add a sentence or two here about your role at HPC.</p>
+        <div class="timeline-logo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/EDF_Energy_logo.svg" alt="EDF Energy logo"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Add year &ndash; Present</div>
+          <div class="timeline-role">Placement Year <span class="badge">Current</span></div>
+          <div class="timeline-org">EDF Energy &mdash; Hinkley Point C, Somerset</div>
+          <p class="placeholder-hint">Add a sentence or two here about your role at HPC.</p>
+        </div>
       </div>
  
     </div>
