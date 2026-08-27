@@ -52,7 +52,7 @@
 <body>
   <div class="card">
     <span class="emoji">🪐</span>
-    <h1>A teaspoon of neutron star would weigh about as much as a mountain.</h1>
+    <h1>A teaspoon of neutron star would weigh about as much as a tain.</h1>
   </div>
 </body>
 </html>
