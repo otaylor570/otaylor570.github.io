@@ -4,15 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Oran Taylor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1c2530;
-    --ink-soft: #4a5568;
-    --paper: #ffffff;
-    --paper-tint: #f6f8fa;
-    --line: #e2e6ea;
-    --accent: #1f5f68;
-    --accent-soft: #e7f1f2;
+    --ink: #2b2115;
+    --ink-soft: #8a7a63;
+    --paper: #f4ead9;
+    --paper-tint: #ece0c8;
+    --line: #ddccac;
+    --accent: #8a5a2e;
+    --accent-soft: #e9dcbf;
   }
  
   * { box-sizing: border-box; }
@@ -20,16 +23,23 @@
   html, body {
     margin: 0;
     padding: 0;
-    background: var(--paper);
+    background-color: var(--paper);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(43, 33, 21, 0.045) 0px,
+      rgba(43, 33, 21, 0.045) 1px,
+      transparent 1px,
+      transparent 27px
+    );
     color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    font-family: "Lora", Georgia, "Times New Roman", serif;
+    line-height: 1.65;
   }
  
   header {
     position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(244, 234, 217, 0.92);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line);
     z-index: 10;
@@ -47,8 +57,9 @@
   }
  
   .brand {
-    font-weight: 700;
-    font-size: 1.05rem;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 800;
+    font-size: 1.15rem;
     letter-spacing: 0.01em;
     color: var(--ink);
   }
@@ -65,7 +76,7 @@
     background: transparent;
     color: var(--ink-soft);
     font-size: 0.92rem;
-    font-family: inherit;
+    font-family: "Lora", Georgia, serif;
     padding: 0.5rem 0.85rem;
     border-radius: 6px;
     cursor: pointer;
@@ -104,13 +115,17 @@
   }
  
   h1 {
-    font-size: 2.3rem;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 800;
+    font-size: 2.5rem;
     margin: 0 0 0.4rem;
     letter-spacing: -0.01em;
   }
  
   h2 {
-    font-size: 1.5rem;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: 1.6rem;
     margin: 0 0 1.4rem;
     color: var(--ink);
   }
@@ -142,7 +157,7 @@
     border: 1px solid var(--line);
     background: var(--paper);
     color: var(--ink);
-    font-family: inherit;
+    font-family: "Lora", Georgia, serif;
     font-size: 0.92rem;
     padding: 0.65rem 1.1rem;
     border-radius: 8px;
@@ -225,6 +240,15 @@
     font-weight: 600;
     font-size: 0.95rem;
     margin-bottom: 0.35rem;
+  }
+ 
+  .timeline-date {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 0.3rem;
   }
  
   .badge {
@@ -319,24 +343,28 @@
     <div class="timeline">
  
       <div class="timeline-item">
+        <div class="timeline-date">2023</div>
         <div class="timeline-role">Work Experience</div>
         <div class="timeline-org">Generation Innovation</div>
         <p class="placeholder-hint">Add a sentence or two here about what you did during this placement.</p>
       </div>
  
       <div class="timeline-item">
+        <div class="timeline-date">2024</div>
         <div class="timeline-role">Work Experience</div>
         <div class="timeline-org">ARUP</div>
         <p class="placeholder-hint">Add a sentence or two here about what you did during this placement.</p>
       </div>
  
       <div class="timeline-item">
+        <div class="timeline-date">2025</div>
         <div class="timeline-role">Summer Internship</div>
         <div class="timeline-org">Artemis Technologies</div>
         <p class="placeholder-hint">Add a sentence or two here about what you did during this internship.</p>
       </div>
  
       <div class="timeline-item current">
+        <div class="timeline-date">Add year &ndash; Present</div>
         <div class="timeline-role">Placement Year <span class="badge">Current</span></div>
         <div class="timeline-org">EDF Energy &mdash; Hinkley Point C, Somerset</div>
         <p class="placeholder-hint">Add a sentence or two here about your role at HPC.</p>
@@ -380,3 +408,4 @@
  
 </body>
 </html>
+ 
