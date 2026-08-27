@@ -11,18 +11,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #ff6b6b, #f7d038, #4ecdc4, #556fb5);
+    background: linear-gradient(135deg, #0f2027, #2c5364, #8e2de2, #ff512f);
     background-size: 400% 400%;
-    animation: gradientShift 12s ease infinite;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    animation: gradientShift 8s ease infinite;
+    font-family: Georgia, "Times New Roman", serif;
   }
-
+ 
   @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-
+ 
   .card {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
@@ -33,7 +33,7 @@
     max-width: 600px;
     text-align: center;
   }
-
+ 
   h1 {
     color: #fff;
     font-size: 1.8rem;
@@ -41,7 +41,7 @@
     margin: 0;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
-
+ 
   .emoji {
     font-size: 2.5rem;
     display: block;
@@ -51,8 +51,9 @@
 </head>
 <body>
   <div class="card">
-    <span class="emoji">🦩</span>
-    <h1>Somewhere, a flamingo is currently overthinking a decision it made this morning.</h1>
+    <span class="emoji">🪐</span>
+    <h1>A teaspoon of neutron star would weigh about as much as a mountain.</h1>
   </div>
 </body>
 </html>
+ 
