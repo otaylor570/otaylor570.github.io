@@ -3,57 +3,380 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Test Page</title>
+<title>Oran Taylor</title>
 <style>
+  :root {
+    --ink: #1c2530;
+    --ink-soft: #4a5568;
+    --paper: #ffffff;
+    --paper-tint: #f6f8fa;
+    --line: #e2e6ea;
+    --accent: #1f5f68;
+    --accent-soft: #e7f1f2;
+  }
+ 
+  * { box-sizing: border-box; }
+ 
   html, body {
     margin: 0;
-    height: 100%;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+ 
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    z-index: 10;
+  }
+ 
+  .header-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.1rem 1.5rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #0f2027, #2c5364, #8e2de2, #ff512f);
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
-    font-family: Georgia, "Times New Roman", serif;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
  
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  .brand {
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    color: var(--ink);
   }
  
-  .card {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 2.5rem 3rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-    max-width: 600px;
-    text-align: center;
+  nav {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+  }
+ 
+  nav button {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    font-family: inherit;
+    padding: 0.5rem 0.85rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+ 
+  nav button:hover {
+    background: var(--paper-tint);
+    color: var(--ink);
+  }
+ 
+  nav button.active {
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 600;
+  }
+ 
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+ 
+  section {
+    display: none;
+    animation: fadeIn 0.35s ease;
+  }
+ 
+  section.active {
+    display: block;
+  }
+ 
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
   }
  
   h1 {
-    color: #fff;
-    font-size: 1.8rem;
-    line-height: 1.4;
-    margin: 0;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    font-size: 2.3rem;
+    margin: 0 0 0.4rem;
+    letter-spacing: -0.01em;
   }
  
-  .emoji {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 1rem;
+  h2 {
+    font-size: 1.5rem;
+    margin: 0 0 1.4rem;
+    color: var(--ink);
+  }
+ 
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+ 
+  .tagline {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 55ch;
+    margin: 0 0 2rem;
+  }
+ 
+  .welcome-cta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+ 
+  .welcome-cta button {
+    appearance: none;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 0.92rem;
+    padding: 0.65rem 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+ 
+  .welcome-cta button.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+ 
+  .welcome-cta button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+ 
+  .welcome-cta button.primary:hover {
+    color: #fff;
+    opacity: 0.9;
+  }
+ 
+  p {
+    color: var(--ink-soft);
+    margin: 0 0 1.1rem;
+  }
+ 
+  .interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+ 
+  .interests span {
+    background: var(--paper-tint);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+  }
+ 
+  .timeline {
+    border-left: 2px solid var(--line);
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+ 
+  .timeline-item {
+    position: relative;
+  }
+ 
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -1.94rem;
+    top: 0.35rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+ 
+  .timeline-item.current::before {
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+ 
+  .timeline-role {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+ 
+  .timeline-org {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+  }
+ 
+  .badge {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 5px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+ 
+  .placeholder-hint {
+    font-style: italic;
+    color: #9aa5b1;
+    font-size: 0.9rem;
+  }
+ 
+  .empty-state {
+    border: 1px dashed var(--line);
+    border-radius: 10px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    color: var(--ink-soft);
+    background: var(--paper-tint);
+  }
+ 
+  footer {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-top: 1px solid var(--line);
+    color: #9aa5b1;
+    font-size: 0.82rem;
+    text-align: center;
+  }
+ 
+  @media (max-width: 600px) {
+    h1 { font-size: 1.9rem; }
+    main { padding: 2rem 1.25rem 4rem; }
   }
 </style>
 </head>
 <body>
-  <div class="card">
-    <span class="emoji">🪐</span>
-    <h1>A teaspoon of neutron star would weigh about as much as a tain.</h1>
+ 
+<header>
+  <div class="header-inner">
+    <div class="brand">Oran Taylor</div>
+    <nav>
+      <button class="tab-btn active" data-tab="welcome">Welcome</button>
+      <button class="tab-btn" data-tab="about">About Me</button>
+      <button class="tab-btn" data-tab="career">Career</button>
+      <button class="tab-btn" data-tab="projects">Projects</button>
+    </nav>
   </div>
+</header>
+ 
+<main>
+ 
+  <section id="welcome" class="active">
+    <div class="eyebrow">Welcome</div>
+    <h1>Hi, I'm Oran Taylor.</h1>
+    <p class="tagline">A 20-year-old Electrical &amp; Electronic Engineering student at Queen's University Belfast, currently on placement at EDF Energy's Hinkley Point C site in Somerset, England.</p>
+    <div class="welcome-cta">
+      <button class="primary" onclick="showTab('about')">About Me</button>
+      <button onclick="showTab('career')">My Career</button>
+      <button onclick="showTab('projects')">Projects</button>
+    </div>
+  </section>
+ 
+  <section id="about">
+    <div class="eyebrow">About Me</div>
+    <h2>A bit about who I am</h2>
+    <p>I'm an Electrical and Electronic Engineering student at Queen's University Belfast, currently 20 years old. I'm a very active person &mdash; I'd take a busy day over a quiet one every time.</p>
+    <p>Outside of my studies, I run and work out regularly, and I like trying new clubs and activities: I've picked up baseball and kickboxing recently. I try to push myself to get a little better every day, whether that's in the gym, in a new sport, or in my engineering work.</p>
+    <div class="interests">
+      <span>Running</span>
+      <span>Working out</span>
+      <span>Baseball</span>
+      <span>Kickboxing</span>
+      <span>Electrical &amp; Electronic Engineering</span>
+    </div>
+  </section>
+ 
+  <section id="career">
+    <div class="eyebrow">Career</div>
+    <h2>Experience so far</h2>
+    <div class="timeline">
+ 
+      <div class="timeline-item">
+        <div class="timeline-role">Work Experience</div>
+        <div class="timeline-org">Generation Innovation</div>
+        <p class="placeholder-hint">Add a sentence or two here about what you did during this placement.</p>
+      </div>
+ 
+      <div class="timeline-item">
+        <div class="timeline-role">Work Experience</div>
+        <div class="timeline-org">ARUP</div>
+        <p class="placeholder-hint">Add a sentence or two here about what you did during this placement.</p>
+      </div>
+ 
+      <div class="timeline-item">
+        <div class="timeline-role">Summer Internship</div>
+        <div class="timeline-org">Artemis Technologies</div>
+        <p class="placeholder-hint">Add a sentence or two here about what you did during this internship.</p>
+      </div>
+ 
+      <div class="timeline-item current">
+        <div class="timeline-role">Placement Year <span class="badge">Current</span></div>
+        <div class="timeline-org">EDF Energy &mdash; Hinkley Point C, Somerset</div>
+        <p class="placeholder-hint">Add a sentence or two here about your role at HPC.</p>
+      </div>
+ 
+    </div>
+  </section>
+ 
+  <section id="projects">
+    <div class="eyebrow">Projects</div>
+    <h2>What I've built</h2>
+    <div class="empty-state">
+      Projects coming soon &mdash; check back shortly.
+    </div>
+  </section>
+ 
+</main>
+ 
+<footer>
+  &copy; <span id="year"></span> Oran Taylor
+</footer>
+ 
+<script>
+  function showTab(id) {
+    document.querySelectorAll('section').forEach(function (s) {
+      s.classList.toggle('active', s.id === id);
+    });
+    document.querySelectorAll('.tab-btn').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.tab === id);
+    });
+  }
+ 
+  document.querySelectorAll('.tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      showTab(btn.dataset.tab);
+    });
+  });
+ 
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+ 
 </body>
 </html>
- 
