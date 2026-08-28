@@ -8,387 +8,64 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #2b2115;
-    --ink-soft: #8a7a63;
-    --paper: #f4ead9;
-    --paper-tint: #ece0c8;
-    --line: #ddccac;
-    --accent: #8a5a2e;
-    --accent-soft: #e9dcbf;
-  }
- 
+  :root { --ink:#2b2115; --ink-soft:#8a7a63; --paper:#f4ead9; --paper-tint:#ece0c8; --line:#ddccac; --accent:#8a5a2e; --accent-soft:#e9dcbf; }
   * { box-sizing: border-box; }
- 
-  html, body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--paper);
-    background-image: repeating-linear-gradient(
-      to bottom,
-      rgba(43, 33, 21, 0.045) 0px,
-      rgba(43, 33, 21, 0.045) 1px,
-      transparent 1px,
-      transparent 27px
-    );
-    color: var(--ink);
-    font-family: "Lora", Georgia, "Times New Roman", serif;
-    line-height: 1.65;
-  }
- 
-  header {
-    position: sticky;
-    top: 0;
-    background: rgba(244, 234, 217, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-    z-index: 10;
-  }
- 
-  .header-inner {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 1.1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
- 
-  .brand {
-    font-family: "Playfair Display", Georgia, serif;
-    font-weight: 800;
-    font-size: 1.15rem;
-    letter-spacing: 0.01em;
-    color: var(--ink);
-  }
- 
-  nav {
-    display: flex;
-    gap: 0.25rem;
-    flex-wrap: wrap;
-  }
- 
-  nav button {
-    appearance: none;
-    border: none;
-    background: transparent;
-    color: var(--ink-soft);
-    font-size: 0.92rem;
-    font-family: "Lora", Georgia, serif;
-    padding: 0.5rem 0.85rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease;
-  }
- 
-  nav button:hover {
-    background: var(--paper-tint);
-    color: var(--ink);
-  }
- 
-  nav button.active {
-    background: var(--accent-soft);
-    color: var(--accent);
-    font-weight: 600;
-  }
- 
-  main {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem 5rem;
-  }
- 
-  section {
-    display: none;
-    animation: fadeIn 0.35s ease;
-  }
- 
-  section.active {
-    display: block;
-  }
- 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
- 
-  h1 {
-    font-family: "Playfair Display", Georgia, serif;
-    font-weight: 800;
-    font-size: 2.5rem;
-    margin: 0 0 0.4rem;
-    letter-spacing: -0.01em;
-  }
- 
-  h2 {
-    font-family: "Playfair Display", Georgia, serif;
-    font-weight: 700;
-    font-size: 1.6rem;
-    margin: 0 0 1.4rem;
-    color: var(--ink);
-  }
- 
-  .eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.78rem;
-    color: var(--accent);
-    font-weight: 700;
-    margin-bottom: 0.6rem;
-  }
- 
-  .tagline {
-    font-size: 1.15rem;
-    color: var(--ink-soft);
-    max-width: 55ch;
-    margin: 0 0 2rem;
-  }
- 
-  p {
-    color: var(--ink-soft);
-    margin: 0 0 1.1rem;
-  }
- 
-  .interests {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1.5rem;
-  }
- 
-  .interests span {
-    background: var(--paper-tint);
-    border: 1px solid var(--line);
-    color: var(--ink-soft);
-    font-size: 0.85rem;
-    padding: 0.35rem 0.75rem;
-    border-radius: 999px;
-  }
- 
-  .timeline {
-    border-left: 2px solid var(--line);
-    padding-left: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
- 
-  .timeline-item {
-    position: relative;
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
- 
-  .timeline-logo {
-    flex: 0 0 auto;
-    width: 46px;
-    height: 46px;
-    border-radius: 8px;
-    background: var(--paper);
-    border: 1px solid var(--line);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
- 
-  .timeline-logo img {
-    max-width: 70%;
-    max-height: 70%;
-    object-fit: contain;
-  }
- 
-  .timeline-logo.initials {
-    font-family: "Playfair Display", Georgia, serif;
-    font-weight: 800;
-    font-size: 0.95rem;
-    color: var(--accent);
-    background: var(--accent-soft);
-    border-color: var(--accent-soft);
-  }
- 
-  .timeline-content {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
- 
-  .timeline-item::before {
-    content: "";
-    position: absolute;
-    left: -1.94rem;
-    top: 0.35rem;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
- 
-  .timeline-item.current::before {
-    box-shadow: 0 0 0 4px var(--accent-soft);
-  }
- 
-  .timeline-role {
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--ink);
-  }
- 
-  .timeline-org {
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: 0.35rem;
-  }
- 
-  .timeline-date {
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--ink-soft);
-    margin-bottom: 0.3rem;
-  }
- 
-  .badge {
-    display: inline-block;
-    background: var(--accent-soft);
-    color: var(--accent);
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.15rem 0.5rem;
-    border-radius: 5px;
-    margin-left: 0.5rem;
-    vertical-align: middle;
-  }
- 
-  .placeholder-hint {
-    font-style: italic;
-    color: #5c4c37;
-    font-size: 0.9rem;
-  }
- 
-  .details-btn {
-    appearance: none;
-    margin-top: 0.5rem;
-    border: 1px solid var(--line);
-    background: var(--paper);
-    color: var(--accent);
-    font-family: "Lora", Georgia, serif;
-    font-size: 0.82rem;
-    font-weight: 600;
-    padding: 0.4rem 0.85rem;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease;
-  }
- 
-  .details-btn:hover {
-    background: var(--accent);
-    color: #fff;
-  }
- 
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(43, 33, 21, 0.45);
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    z-index: 100;
-  }
- 
-  .modal-overlay.open {
-    display: flex;
-  }
- 
-  .modal-box {
-    position: relative;
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    max-width: 520px;
-    width: 100%;
-    padding: 2rem 2.2rem;
-    box-shadow: 0 12px 40px rgba(43, 33, 21, 0.25);
-    animation: fadeIn 0.2s ease;
-  }
- 
-  .modal-close {
-    position: absolute;
-    top: 0.9rem;
-    right: 1rem;
-    appearance: none;
-    border: none;
-    background: transparent;
-    color: var(--ink-soft);
-    font-size: 1.3rem;
-    line-height: 1;
-    cursor: pointer;
-  }
- 
-  .modal-close:hover {
-    color: var(--ink);
-  }
- 
-  .modal-date {
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 0.4rem;
-  }
- 
-  .modal-title {
-    font-family: "Playfair Display", Georgia, serif;
-    font-weight: 700;
-    font-size: 1.3rem;
-    margin-bottom: 0.2rem;
-  }
- 
-  .modal-org {
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-  }
- 
-  .modal-body {
-    margin: 0;
-  }
- 
-  .empty-state {
-    border: 1px dashed var(--line);
-    border-radius: 10px;
-    padding: 2.5rem 1.5rem;
-    text-align: center;
-    color: var(--ink-soft);
-    background: var(--paper-tint);
-  }
- 
-  footer {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 1.5rem;
-    border-top: 1px solid var(--line);
-    color: #9aa5b1;
-    font-size: 0.82rem;
-    text-align: center;
-  }
- 
-  @media (max-width: 600px) {
-    h1 { font-size: 1.9rem; }
-    main { padding: 2rem 1.25rem 4rem; }
-  }
+  button { appearance: none; border: 0; background: none; cursor: pointer; font-family: inherit; }
+  html, body { margin: 0; padding: 0; background-color: var(--paper); background-image: repeating-linear-gradient(to bottom, rgba(43,33,21,.045) 0px, rgba(43,33,21,.045) 1px, transparent 1px, transparent 27px); color: var(--ink); font-family: "Lora", Georgia, "Times New Roman", serif; line-height: 1.65; }
+  header { position: sticky; top: 0; background: var(--accent); border-bottom: 1px solid #6e4623; z-index: 10; }
+  .header-inner, main, footer { max-width: 780px; margin: 0 auto; }
+  .header-inner { padding: 1.1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .75rem; }
+  main { padding: 3rem 1.5rem 5rem; }
+  h1, h2, .brand, .timeline-logo.initials, .modal-title { font-family: "Playfair Display", Georgia, serif; }
+  .brand { font-weight: 800; font-size: 1.15rem; letter-spacing: .01em; color: #fff; }
+  nav { display: flex; gap: .25rem; flex-wrap: wrap; }
+  nav button { color: rgba(255,255,255,.8); font-size: .92rem; padding: .5rem .85rem; border-radius: 6px; transition: background .15s ease, color .15s ease; }
+  nav button:hover { background: rgba(255,255,255,.15); color: #fff; }
+  nav button.active { background: #fff; color: var(--accent); font-weight: 600; }
+  section { display: none; animation: fadeIn .35s ease; }
+  section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  h1 { font-weight: 800; font-size: 2.5rem; margin: 0 0 .4rem; letter-spacing: -.01em; }
+  h2 { font-weight: 700; font-size: 1.6rem; margin: 0 0 1.4rem; color: var(--ink); }
+  .eyebrow { text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; color: var(--accent); font-weight: 700; margin-bottom: .6rem; }
+  .tagline { font-size: 1.15rem; color: var(--ink-soft); max-width: 55ch; margin: 0 0 2rem; }
+  p { color: var(--ink-soft); margin: 0 0 1.1rem; }
+  .interests { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
+  .interests span { background: var(--paper-tint); border: 1px solid var(--line); color: var(--ink-soft); font-size: .85rem; padding: .35rem .75rem; border-radius: 999px; }
+  .contact-block { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+  .contact-block .eyebrow { margin-bottom: .5rem; }
+  .contact-email { font-size: 1.05rem; font-weight: 600; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s ease; }
+  .contact-email:hover { border-color: var(--accent); }
+  .timeline { border-left: 2px solid var(--line); padding-left: 1.5rem; display: flex; flex-direction: column; gap: 2rem; }
+  .timeline-item { position: relative; display: flex; gap: 1rem; align-items: flex-start; }
+  .timeline-item::before { content: ""; position: absolute; left: -1.94rem; top: .35rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+  .timeline-item.current::before { box-shadow: 0 0 0 4px var(--accent-soft); }
+  .timeline-logo { flex: 0 0 auto; width: 68px; height: 68px; border-radius: 10px; background: var(--paper); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .timeline-logo img { max-width: 78%; max-height: 78%; object-fit: contain; }
+  .timeline-logo.initials { font-weight: 800; font-size: 1.3rem; color: var(--accent); background: var(--accent-soft); border-color: var(--accent-soft); }
+  .timeline-content { flex: 1 1 auto; min-width: 0; }
+  .timeline-role { font-weight: 700; font-size: 1.05rem; color: var(--ink); }
+  .timeline-org { color: var(--accent); font-weight: 600; font-size: .95rem; margin-bottom: .35rem; }
+  .timeline-date { text-transform: uppercase; letter-spacing: .06em; font-size: .72rem; font-weight: 600; color: var(--ink-soft); margin-bottom: .3rem; }
+  .badge { display: inline-block; background: var(--accent-soft); color: var(--accent); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: .15rem .5rem; border-radius: 5px; margin-left: .5rem; vertical-align: middle; }
+  .placeholder-hint { font-style: italic; color: #5c4c37; font-size: .9rem; }
+  .details-btn { margin-top: .5rem; border: 1px solid var(--line); background: var(--paper); color: var(--accent); font-size: .82rem; font-weight: 600; padding: .4rem .85rem; border-radius: 999px; transition: background .15s ease, color .15s ease; }
+  .details-btn:hover { background: var(--accent); color: #fff; }
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(43,33,21,.45); align-items: center; justify-content: center; padding: 1.5rem; z-index: 100; }
+  .modal-overlay.open { display: flex; }
+  .modal-box { position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; max-width: 520px; width: 100%; padding: 2rem 2.2rem; box-shadow: 0 12px 40px rgba(43,33,21,.25); animation: fadeIn .2s ease; }
+  .modal-close { position: absolute; top: .9rem; right: 1rem; color: var(--ink-soft); font-size: 1.3rem; line-height: 1; }
+  .modal-close:hover { color: var(--ink); }
+  .modal-date { text-transform: uppercase; letter-spacing: .06em; font-size: .72rem; font-weight: 600; color: var(--accent); margin-bottom: .4rem; }
+  .modal-title { font-weight: 700; font-size: 1.3rem; margin-bottom: .2rem; }
+  .modal-org { color: var(--ink-soft); font-size: .95rem; margin-bottom: 1rem; }
+  .modal-body { margin: 0; }
+  .empty-state { border: 1px dashed var(--line); border-radius: 10px; padding: 2.5rem 1.5rem; text-align: center; color: var(--ink-soft); background: var(--paper-tint); }
+  footer { padding: 1.5rem; border-top: 1px solid var(--line); color: #9aa5b1; font-size: .82rem; text-align: center; }
+  @media (max-width: 600px) { h1 { font-size: 1.9rem; } main { padding: 2rem 1.25rem 4rem; } }
 </style>
 </head>
 <body>
- 
 <header>
   <div class="header-inner">
     <div class="brand">Oran Taylor</div>
@@ -400,15 +77,16 @@
     </nav>
   </div>
 </header>
- 
 <main>
- 
   <section id="welcome" class="active">
     <div class="eyebrow">Welcome</div>
     <h1>Hi, I'm Oran Taylor.</h1>
     <p class="tagline">A 20-year-old Electrical &amp; Electronic Engineering student at Queen's University Belfast, currently on placement at EDF Energy's Hinkley Point C site in Somerset, England.</p>
+    <div class="contact-block">
+      <div class="eyebrow">Contact</div>
+      <a class="contact-email" href="mailto:orantaylor570@gmail.com">orantaylor570@gmail.com</a>
+    </div>
   </section>
- 
   <section id="about">
     <div class="eyebrow">About Me</div>
     <h2>A bit about who I am</h2>
@@ -422,12 +100,10 @@
       <span>Electrical &amp; Electronic Engineering</span>
     </div>
   </section>
- 
   <section id="career">
     <div class="eyebrow">Career</div>
     <h2>Experience so far</h2>
     <div class="timeline">
- 
       <div class="timeline-item">
         <div class="timeline-logo"><img src="https://media.licdn.com/dms/image/v2/C4E0BAQHfbK6SzxitnA/company-logo_200_200/company-logo_200_200/0/1669111597914/generation_innovation_ni_logo?e=2147483647&v=beta&t=mTyIv27Ad2JUcbBQ7F0CAiP-D3Az7POfpbUb0gDwo8o" alt="Generation Innovation logo"></div>
         <div class="timeline-content">
@@ -435,15 +111,9 @@
           <div class="timeline-role">Work Experience</div>
           <div class="timeline-org">Generation Innovation</div>
           <p class="placeholder-hint">Solved and pitched a company problem to a 400-person audience within an 8-person team over 5 days.</p>
-          <button class="details-btn"
-            onclick="openDetails(this)"
-            data-date="2023"
-            data-role="Work Experience"
-            data-org="Generation Innovation"
-            data-detail="Add an in-depth description here: what the programme involved, what you worked on day-to-day, and anything you achieved.">More details</button>
+          <button class="details-btn" onclick="openDetails(this)" data-date="2023" data-role="Work Experience" data-org="Generation Innovation" data-detail="Add an in-depth description here: what the programme involved, what you worked on day-to-day, and anything you achieved.">More details</button>
         </div>
       </div>
- 
       <div class="timeline-item">
         <div class="timeline-logo"><img src="https://greenbusinessclub.nl/landelijk/wp-content/uploads/sites/4/2021/11/arup-1.png" alt="Arup logo"></div>
         <div class="timeline-content">
@@ -451,15 +121,9 @@
           <div class="timeline-role">Work Experience</div>
           <div class="timeline-org">ARUP</div>
           <p class="placeholder-hint">Co-developed and presented a new design for Belfast's Grand Central Station to corporate representatives within 5-days.</p>
-          <button class="details-btn"
-            onclick="openDetails(this)"
-            data-date="2024"
-            data-role="Work Experience"
-            data-org="ARUP"
-            data-detail="Add an in-depth description here: what the placement involved, what you worked on day-to-day, and anything you achieved.">More details</button>
+          <button class="details-btn" onclick="openDetails(this)" data-date="2024" data-role="Work Experience" data-org="ARUP" data-detail="Add an in-depth description here: what the placement involved, what you worked on day-to-day, and anything you achieved.">More details</button>
         </div>
       </div>
- 
       <div class="timeline-item">
         <div class="timeline-logo"><img src="https://www.artemistechnologies.co.uk/img/icons/artemis-logo.svg" alt="Artemis Technologies logo"></div>
         <div class="timeline-content">
@@ -467,15 +131,9 @@
           <div class="timeline-role">Summer Internship</div>
           <div class="timeline-org">Artemis Technologies</div>
           <p class="placeholder-hint">Built and tested marine vessel safety systems while managing and ordering parts.</p>
-          <button class="details-btn"
-            onclick="openDetails(this)"
-            data-date="2025"
-            data-role="Summer Internship"
-            data-org="Artemis Technologies"
-            data-detail="Add an in-depth description here: what the internship involved, what you worked on day-to-day, and anything you achieved.">More details</button>
+          <button class="details-btn" onclick="openDetails(this)" data-date="2025" data-role="Summer Internship" data-org="Artemis Technologies" data-detail="Add an in-depth description here: what the internship involved, what you worked on day-to-day, and anything you achieved.">More details</button>
         </div>
       </div>
- 
       <div class="timeline-item current">
         <div class="timeline-logo"><img src="https://www.wikicorporates.org/mediawiki/images/thumb/9/92/Electricite-de-France-EDF-Energy-2005.svg/500px-Electricite-de-France-EDF-Energy-2005.svg.png" alt="EDF Energy logo"></div>
         <div class="timeline-content">
@@ -483,32 +141,18 @@
           <div class="timeline-role">Placement Year <span class="badge">Current</span></div>
           <div class="timeline-org">EDF Energy &mdash; Hinkley Point C, Somerset</div>
           <p class="placeholder-hint">Add a sentence or two here about your role at HPC.</p>
-          <button class="details-btn"
-            onclick="openDetails(this)"
-            data-date="Add year &ndash; Present"
-            data-role="Placement Year"
-            data-org="EDF Energy &mdash; Hinkley Point C, Somerset"
-            data-detail="Add an in-depth description here: what your placement involves, what you work on day-to-day, and anything you achieve.">More details</button>
+          <button class="details-btn" onclick="openDetails(this)" data-date="Add year &ndash; Present" data-role="Placement Year" data-org="EDF Energy &mdash; Hinkley Point C, Somerset" data-detail="Add an in-depth description here: what your placement involves, what you work on day-to-day, and anything you achieve.">More details</button>
         </div>
       </div>
- 
     </div>
   </section>
- 
   <section id="projects">
     <div class="eyebrow">Projects</div>
     <h2>What I've built</h2>
-    <div class="empty-state">
-      Projects coming soon &mdash; check back shortly.
-    </div>
+    <div class="empty-state">Projects coming soon &mdash; check back shortly.</div>
   </section>
- 
 </main>
- 
-<footer>
-  &copy; <span id="year"></span> Oran Taylor
-</footer>
- 
+<footer>&copy; <span id="year"></span> Oran Taylor</footer>
 <div class="modal-overlay" id="detail-modal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeDetails()" aria-label="Close">&times;</button>
@@ -518,27 +162,14 @@
     <p class="modal-body" id="modal-detail"></p>
   </div>
 </div>
- 
 <script>
   function showTab(id) {
-    document.querySelectorAll('section').forEach(function (s) {
-      s.classList.toggle('active', s.id === id);
-    });
-    document.querySelectorAll('.tab-btn').forEach(function (b) {
-      b.classList.toggle('active', b.dataset.tab === id);
-    });
+    document.querySelectorAll('section').forEach(function (s) { s.classList.toggle('active', s.id === id); });
+    document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.tab === id); });
   }
- 
-  document.querySelectorAll('.tab-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      showTab(btn.dataset.tab);
-    });
-  });
- 
+  document.querySelectorAll('.tab-btn').forEach(function (btn) { btn.addEventListener('click', function () { showTab(btn.dataset.tab); }); });
   document.getElementById('year').textContent = new Date().getFullYear();
- 
   var detailModal = document.getElementById('detail-modal');
- 
   function openDetails(btn) {
     document.getElementById('modal-date').textContent = btn.dataset.date;
     document.getElementById('modal-role').textContent = btn.dataset.role;
@@ -546,19 +177,10 @@
     document.getElementById('modal-detail').textContent = btn.dataset.detail;
     detailModal.classList.add('open');
   }
- 
-  function closeDetails() {
-    detailModal.classList.remove('open');
-  }
- 
-  detailModal.addEventListener('click', function (e) {
-    if (e.target === detailModal) closeDetails();
-  });
- 
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeDetails();
-  });
+  function closeDetails() { detailModal.classList.remove('open'); }
+  detailModal.addEventListener('click', function (e) { if (e.target === detailModal) closeDetails(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDetails(); });
 </script>
- 
 </body>
 </html>
+ 
